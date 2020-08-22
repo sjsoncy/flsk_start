@@ -44,4 +44,8 @@ dapp.route('/')
 def index():
     # return "<h1>인덱스 페이지</h1>"
     return render_template("index.html")
+
+app.route('/about')
+def about():
+    return render_template("about.html")
 ```
