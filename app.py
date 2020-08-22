@@ -19,11 +19,13 @@ def framework():
 
 @app.route('/form')
 def form():
-    res = request.args.get('keyword') # args : arguments 입력인자. 매개변수를 입력할 떄 사용하는 말
-    print(res)
-    return render_template("form.html")
+    num1 = request.args.get('num1') #처음접근 None
+    num2 = request.args.get('num2')
+    if num1 and num2:
+        total = float(num1)+float(num2)
+        print(total)
+        return render_template("form.html")
 
 # 앱실행
 if __name__ == "__main__":
     app.run(debug=True) #가동
-
