@@ -11,10 +11,15 @@
 <!-- get:조회용, db에 영향x \ post : 저장용, db에 영향o -->
     <form action="/form" method="POST">
         <span>입력 키워드</span>
-        <input name="num1" type="text" placeholder="키워드를 입력하세요">
-        <input name="num2" type="text" placeholder="키워드를 입력하세요">
+        <input name="num1" type="number" placeholder="키워드를 입력하세요" value="0">
+        <input name="num2" type="number" placeholder="키워드를 입력하세요" value="0">
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
         <button type="submit">전송</button>
     </form>
+
+    <!-- 데이터 변수가 존제할때만 살행 -->
+    {% if data %}
+    <h3>결과 : {{data.num1}} + {{data.num2}} = {{data.total}}</h3>
+    {% endif %}
 </body>
 </html>

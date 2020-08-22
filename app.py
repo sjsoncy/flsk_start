@@ -28,7 +28,9 @@ def form():
         if num1 and num2:
            total = float(num1)+float(num2)
            print(total)
-        return render_template("form.html")
+           data = {'num1':num1, 'num2':num2, 'total':total}
+
+        return render_template("form.html", data = data)
 
 # 앱실행
 if __name__ == "__main__":
