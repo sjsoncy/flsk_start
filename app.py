@@ -32,6 +32,13 @@ def form():
 
         return render_template("form.html", data = data)
 
+@app.route('/welcome', methods=('GET','POST'))
+def welcome():
+    if request.method == "POST":
+        user_name = request.form.get('userName')
+        return render_template('welcome.html', data=user_name)
+    return render_template('welcome.html')
+
 # 앱실행
 if __name__ == "__main__":
     app.run(debug=True) #가동
