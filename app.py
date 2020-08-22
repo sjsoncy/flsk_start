@@ -17,13 +17,17 @@ def about():
 def framework():
     return render_template("framework.html")
 
-@app.route('/form')
+@app.route('/form',methods=['GET','POST'])
 def form():
-    num1 = request.args.get('num1') #처음접근 None
-    num2 = request.args.get('num2')
-    if num1 and num2:
-        total = float(num1)+float(num2)
-        print(total)
+    if request.method == "GET": #GET 방식 요청일때
+        return render_template("form.html")
+    elif request.method == "POST": #POST 방식 요청일때
+        num1 = request.form.get('num1')
+        num2 = request.form.get('num2')
+
+        if num1 and num2:
+           total = float(num1)+float(num2)
+           print(total)
         return render_template("form.html")
 
 # 앱실행
